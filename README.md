@@ -19,14 +19,15 @@ Desafío técnico FullTimeForce
 
 3. En la carpeta raiz del proyecto, crear un archivo '.env', este archivo guardara los valores de las variables de entorno. Dentro de este archivo pegar estos valores:
 
-    ```bash
- GITHUB_KEY="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"
- 
- GITHUB_REPO_NAME="challengeFullTimeForce"
- 
- GITHUB_USER="danielpalza" 
- 
- PORT=4000
+GITHUB_KEY="TOKEN ENVIADO POR MAIL"  
+
+GITHUB_REPO_NAME="challengeFullTimeForce" 
+
+GITHUB_USER="danielpalza"
+
+PORT=4000
+
+En 'GITHUB_KEY' debe ir el token enviado por mail, por motivos de seguridad, github no permite subir estos datos al repositorio. Tambien puede servir el token de otra cuenta de github, ya que el repositorio es publico
 
 ## Iniciar el proyecto
 1. Posicionandose en la raiz del proyecto, ejecutar el siguiente comando:
@@ -39,6 +40,8 @@ Desafío técnico FullTimeForce
     ```bash
     cd frontend
     npm start
+
+3. Cuando los dos procesos terminen, se podra visitar el sitio [aqui](http://localhost:4200/): 
 
 ## Test
 1. Ir a la carpeta raiz
