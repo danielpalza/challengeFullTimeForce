@@ -1,1 +1,88 @@
-<p>commit-table works!</p>
+<div class="pt-4 flex items-start justify-center h-screen bg-gray-200">
+  <div class="w-11/12 md:w-6/12 bg-white rounded">
+    <div
+      class="rounded-t-lg flex justify-between align-center p-3 w-full bg-gradient-to-b from-gray-700 to-black text-white  py-4"
+    >
+      <div class="flex flex-col text-start">
+        <h1 class="text-2xl">{{ branch | titlecase }}</h1>
+        <p *ngIf="commits.length > 0  && loading == false">{{ commits.length }} commits</p>
+      </div>
+      <div class="relative inline-flex flex items-center">
+        <button
+          type="button"
+          (click)="isOpen = !isOpen"
+          class="h-min	inline-flex 	w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+          id="menu-button"
+          aria-expanded="true"
+          aria-haspopup="true"
+        >
+          {{ branch | titlecase }}
+          <svg
+            class="-mr-1 h-5 w-5 text-gray-400"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <div
+          *ngIf="isOpen"
+          class="absolute w-auto min-w-[50%] top-12 z-10 mb-2 w-56 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          role="menu"
+          aria-orientation="vertical"
+          aria-labelledby="menu-button"
+          tabindex="-1"
+        >
+          <div class="py-1" role="none">
+            <button
+              *ngFor="let branchOption of branches"
+              (click)="changeBranch(branchOption)"
+              class="text-gray-700 block w-auto min-w-[50%] px-4 py-2 text-left text-sm"
+              role="menuitem"
+              tabindex="-1"
+            >
+              {{ branchOption }}
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="commits.length > 0 && loading == false" class="w-full">
+      <div
+        *ngFor="let commit of commits"
+        class="flex items-center p-1 pl-3 flex my-2"
+      >
+        <img
+          [src]="commit.avatar"
+          class="shadow-2xl rounded-full w-14 h-14 mr-4"
+        />
+
+        <div
+          class="flex flex-col h-16 border-l-2 border-gray-300 justify-around pl-2"
+        >
+          <h2 class="text-lg font-semibold">{{ commit.message }}</h2>
+          <div class="flex">
+            <p class="font-medium text-sm">{{ commit.author }}</p>
+            <p class="ml-2 text-sm italic text-slate-400">{{ commit.date }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="commits.length == 0 && loading == false"
+      class="w-full h-40 flex align-center justify-center text-center text-2xl"
+    >
+      <h2>No hay commits</h2>
+    </div>
+    <div *ngIf="loading" class="flex justify-center h-52 items-center">
+      <div
+        class="animate-spin rounded-full h-20 w-20 border-t-2 border-b-2 border-black"
+      ></div>
+    </div>
+  </div>
+</div>
