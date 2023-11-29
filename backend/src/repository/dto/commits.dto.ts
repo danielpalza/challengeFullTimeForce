@@ -3,6 +3,7 @@ export class CommitsResponse {
     author: string;
     message: string;
     avatar: string;
+    date: string;
   }[];
   branch: string;
 }
