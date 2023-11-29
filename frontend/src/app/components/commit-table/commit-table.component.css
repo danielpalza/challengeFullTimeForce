@@ -1,4 +1,10 @@
-img{
+.avatar{
     box-shadow: -1.5px 2px 9px 4px rgba(0, 0, 0, 0.2);
     
+}
+.git{
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    filter: hue-rotate(1);
 }
