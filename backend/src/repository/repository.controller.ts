@@ -14,6 +14,9 @@ export class RepositoryController {
   async getRepository(
     @Query('branch') branch: string,
   ): Promise<CommitsResponse> {
+    if (!branch) {
+      throw new Error('Branch is required');
+    }
     let { data } = await this.repositoryService.getRepository(branch);
     return {
       commits: data.map((commit) => {
