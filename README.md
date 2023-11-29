@@ -20,7 +20,7 @@ Desafío técnico FullTimeForce
 3. En la carpeta raiz del proyecto, crear un archivo '.env', este archivo guardara los valores de las variables de entorno. Dentro de este archivo pegar estos valores:
 
     ```bash
- GITHUB_KEY="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"
+ GITHUB_KEY="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"
  
  GITHUB_REPO_NAME="challengeFullTimeForce"
  
